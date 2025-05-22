@@ -1,0 +1,276 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /AgentQnA/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /AudioQnA
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /AudioQnA/benchmark/accuracy
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /AudioQnA/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /AudioQnA/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /AvatarChatbot
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /ChatQnA
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /ChatQnA/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ChatQnA/ui/react
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ChatQnA/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /CodeGen
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /CodeGen/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /CodeGen/ui/gradio
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /CodeGen/ui/react
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /CodeGen/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /CodeTrans
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /CodeTrans/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /CodeTrans/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /DBQnA/ui/react
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /DocIndexRetriever
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /DocSum
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /DocSum/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /DocSum/ui/gradio
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /DocSum/ui/react
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /DocSum/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /EdgeCraftRAG
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /EdgeCraftRAG/edgecraftrag
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /EdgeCraftRAG/ui/gradio
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /EdgeCraftRAG/ui/vue
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /GraphRAG
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /GraphRAG/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /GraphRAG/ui/react
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /GraphRAG/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /HybridRAG
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /HybridRAG/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /HybridRAG/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /MultimodalQnA
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /MultimodalQnA/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /MultimodalQnA/ui/gradio
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ProductivitySuite/ui/react
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /SearchQnA
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /SearchQnA/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /SearchQnA/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /Text2Image/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /Text2Image/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /Translation
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /Translation/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /Translation/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /VideoQnA
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /VideoQnA/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /VisualQnA
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /VisualQnA/ui/docker
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /VisualQnA/ui/svelte
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: daily

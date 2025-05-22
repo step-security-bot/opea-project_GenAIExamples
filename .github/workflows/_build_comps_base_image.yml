@@ -32,6 +32,11 @@ jobs:
     outputs:
       should_skip: ${{ steps.check-skip.outputs.should_skip }}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
       - name: Check if job should be skipped
         id: check-skip
         run: |
@@ -47,6 +52,11 @@ jobs:
     if: ${{ needs.pre-build-image-check.outputs.should_skip == 'false' && fromJSON(inputs.build) }}
     runs-on: "docker-build-${{ inputs.node }}"
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
       - name: Clean Up Working Directory
         run: sudo rm -rf ${{github.workspace}}/*
 
@@ -56,7 +66,7 @@ jobs:
           cd GenAIComps && git rev-parse HEAD && cd ../ && ls -l
 
       - name: Build Image
-        uses: opea-project/validation/actions/image-build@main
+        uses: opea-project/validation/actions/image-build@47381fd7ea25058cace43aa4892b939d1fc29fdb # main
         with:
           work_dir: ${{ github.workspace }}/GenAIComps
           docker_compose_path: ${{ github.workspace }}/GenAIComps/.github/workflows/docker/compose/base-compose.yaml

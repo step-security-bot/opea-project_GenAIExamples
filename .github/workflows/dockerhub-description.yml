@@ -13,8 +13,13 @@ jobs:
     outputs:
       examples_json: ${{ steps.extract.outputs.examples_json }}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       - name: Extract images info and generate JSON matrix
         id: extract
@@ -66,6 +71,11 @@ jobs:
         image: ${{ fromJSON(needs.get-images-matrix.outputs.examples_json) }}
       fail-fast: false
     steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+      with:
+        egress-policy: audit
+
     - name: Check dockerhub description
       run: |
         echo "dockerhub description for ${{ matrix.image.repository }}"
@@ -81,33 +91,38 @@ jobs:
         image: ${{ fromJSON(needs.get-images-matrix.outputs.examples_json) }}
       fail-fast: false
     steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+      with:
+        egress-policy: audit
+
     - name: Checkout GenAIExamples
-      uses: actions/checkout@v4
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         repository: opea-project/GenAIExamples
         path: GenAIExamples
 
     - name: Checkout GenAIComps
-      uses: actions/checkout@v4
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         repository: opea-project/GenAIComps
         path: GenAIComps
 
     - name: Checkout vllm-openvino
-      uses: actions/checkout@v4
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         repository: vllm-project/vllm
         path: vllm
 
     - name: Checkout vllm-gaudi
-      uses: actions/checkout@v4
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         repository: HabanaAI/vllm-fork
         ref: habana_main
         path: vllm-fork
 
     - name: add dockerhub description
-      uses: peter-evans/dockerhub-description@v4
+      uses: peter-evans/dockerhub-description@432a30c9e07499fd01da9f8a49f0faf9e0ca5b77 # v4.0.2
       with:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}

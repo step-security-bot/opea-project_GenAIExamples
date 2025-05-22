@@ -22,6 +22,11 @@ jobs:
       TAG: ${{ steps.get-matrix.outputs.TAG }}
       PUBLISH_TAGS: ${{ steps.get-matrix.outputs.PUBLISH_TAGS }}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
       - name: Create Matrix
         id: get-matrix
         run: |
@@ -82,13 +87,18 @@ jobs:
       fail-fast: false
     runs-on: "docker-build-gaudi"
     steps:
-      - uses: docker/login-action@v3.2.0
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
+      - uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446 # v3.2.0
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Image Publish
-        uses: opea-project/validation/actions/image-publish@main
+        uses: opea-project/validation/actions/image-publish@47381fd7ea25058cace43aa4892b939d1fc29fdb # main
         with:
           local_image_ref: ${OPEA_IMAGE_REPO}opea/${{ matrix.image }}:${{ needs.get-build-matrix.outputs.TAG }}
           image_name: opea/${{ matrix.image }}
